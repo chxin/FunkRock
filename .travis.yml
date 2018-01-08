@@ -6,9 +6,10 @@ sudo: false
 before_install: #1.1
   - nvm install 6
   - node --version
-  - wget http://dl.google.com/android/ndk/android-ndk-$NDK_VERSION-linux-x86_64.bin
-  - chmod +x android-ndk-$NDK_VERSION-linux-x86_64.bin
-  - ./android-ndk-$NDK_VERSION-linux-x86_64.bin | egrep -v ^Extracting
+  # android-ndk-r10e-darwin-x86_64.bin
+  - wget http://dl.google.com/android/ndk/android-ndk-$NDK_VERSION-darwin-x86_64.bin
+  - chmod +x android-ndk-$NDK_VERSION-darwin-x86_64.bin
+  - ./android-ndk-$NDK_VERSION-darwin-x86_64.bin | egrep -v ^Extracting
   - export ANDROID_NDK_HOME=`pwd`/android-ndk-$NDK_VERSION
   - export PATH=${PATH}:${ANDROID_NDK_HOME}
 install: #1.2

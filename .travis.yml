@@ -1,10 +1,15 @@
+env:
+  global:
+    - NDK_VERSION=r10e
 language: android
 sudo: false
 before_install: #1.1
   - nvm install 6
   - node --version
-  # - wget http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin  
-  - export ANDROID_NDK_HOME=`pwd`/android-ndk-r10e
+  - wget http://dl.google.com/android/ndk/android-ndk-$NDK_VERSION-linux-x86_64.bin
+  - chmod +x android-ndk-$NDK_VERSION-linux-x86_64.bin
+  - ./android-ndk-$NDK_VERSION-linux-x86_64.bin | egrep -v ^Extracting
+  - export ANDROID_NDK_HOME=`pwd`/android-ndk-$NDK_VERSION
   - export PATH=${PATH}:${ANDROID_NDK_HOME}
 install: #1.2
   - npm install

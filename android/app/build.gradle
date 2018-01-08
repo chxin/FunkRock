@@ -84,13 +84,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.energymost.funkRocking"
         minSdkVersion 18
-        targetSdkVersion 21
+        targetSdkVersion 25
         versionCode "$ROCK_VERSIONCODE".toInteger()
         versionName "$ROCK_VERSION"
         manifestPlaceholders = [ prodName:"变频顾问" ]
@@ -108,10 +108,10 @@ android {
     }
     signingConfigs {
        release {
-           storeFile file("my.keystore")
-           storePassword "funkPass"
-           keyAlias "funkrock"
-           keyPassword "funkPass"
+           storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
        }
    }
     buildTypes {
